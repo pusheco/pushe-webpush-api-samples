@@ -1,0 +1,15 @@
+{
+  "name": "pushe-webpush-js-example",
+  "version": "1.0.0",
+  "description": "A simple example to show how to send pushe webpush with javascript",
+  "main": "simple-push.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node simple-push.js"
+  },
+  "author": "Amir Aleahmad",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}

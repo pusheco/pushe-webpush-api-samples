@@ -63,22 +63,22 @@ namespace csharp
         public static StringContent getNotificationData()
         {
             var data = new JObject();
-            data.Add("title", "title");
-            data.Add("content", "content");
+            data.Add("title", "Title");
+            data.Add("content", "Content");
 
             var action = new JObject();
             action.Add("action_type", "U");
             action.Add("url", "https://pushe.co");
 
             var btn1 = new JObject();
-            btn.Add("btn_content", "YOUR_CONTENT");
-            btn.Add("btn_order", 0);
-            btn.Add("btn_action", action);
+            btn1.Add("btn_content", "YOUR_CONTENT");
+            btn1.Add("btn_order", 0);
+            btn1.Add("btn_action", action);
 
             var btn2 = new JObject();
-            btn.Add("btn_content", "YOUR_CONTENT");
-            btn.Add("btn_order", 1);
-            btn.Add("btn_action", action);
+            btn2.Add("btn_content", "YOUR_CONTENT");
+            btn2.Add("btn_order", 1);
+            btn2.Add("btn_action", action);
             
             data.Add("action",action);
             data.add("buttons",new JArray(new JObject[]{btn1,btn2}));

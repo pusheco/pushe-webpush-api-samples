@@ -17,8 +17,8 @@ headers = {
 data = {
     'app_ids': ['YOUR_APP_ID', ],
     'data': {
-        'title': 'this is the title',
-        'content': 'this is the content',
+        'title': 'Title',
+        'content': 'Content',
         # Actions -> https://pushe.co/docs/webpush-api/#webpush_api_action_type_table2
         'action': {
             'action_type': 'U',

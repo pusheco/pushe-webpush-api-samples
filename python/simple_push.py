@@ -15,8 +15,8 @@ headers = {
 data = {
     'app_ids': ['YOUR_APP_ID', ],
     'data': {
-        'title': 'this is the title',
-        'content': 'this is the content',
+        'title': 'Title',
+        'content': 'Content',
     }
 }
 

@@ -20,8 +20,8 @@ func main() {
 	reqData := map[string]interface{}{
 		"app_ids":  []string{"YOUR_APP_ID"},
 		"data": map[string]interface{}{
-			"title":   "This is a simple push",
-			"content": "All of your users will see me",
+			"title":   "Title",
+			"content": "Content",
 		},
 		// additional keywords -> https://pushe.co/docs/webpush-api/#api_send_advance_notification
 	}

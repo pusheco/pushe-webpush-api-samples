@@ -63,8 +63,8 @@ namespace csharp
         public static StringContent getNotificationData()
         {
             var data = new JObject();
-            data.Add("title", "title");
-            data.Add("content", "content");
+            data.Add("title", "Title");
+            data.Add("content", "Content");
 
             var request_data = new JObject();
             request_data.Add("app_ids", new JArray(new String[] { "YOUR_APPLICATION_ID" }));

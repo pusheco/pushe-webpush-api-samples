@@ -68,7 +68,6 @@ namespace csharp
 
             var filters = new JObject();
             filters.Add("device_id", new JArray(new String[] { "DEVICE_ID_1","DEVICE_ID_2" }));
-            data.Add("content", "content");
 
             var request_data = new JObject();
             request_data.Add("app_ids", new JArray(new String[] { "YOUR_APPLICATION_ID" }));

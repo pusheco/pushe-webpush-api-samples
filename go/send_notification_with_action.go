@@ -19,8 +19,8 @@ func main() {
 	reqData := map[string]interface{}{
 		"app_ids":  []string{"YOUR_APP_ID"},
 		"data": map[string]interface{}{
-			"title":   "This is a simple push",
-			"content": "All of your users will see me",
+			"title":   "Title",
+			"content": "Content",
 
 			// Actions -> https://pushe.co/docs/webpush-api/#webpush_api_action_type_table2
 			"action": map[string]interface{}{

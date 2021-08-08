@@ -15,7 +15,7 @@ headers = {
     'Content-Type': 'application/json'
 }
 
-# Webpush -> https://pushe.co/docs/webpush-api/
+# Webpush doc -> https://docs.pushe.co/docs/web-api/filtered-notification
 
 data = {
     'app_ids': ['YOUR_APP_ID', ],

@@ -1,8 +1,6 @@
 <?php
-
+// Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 $TOKEN = "YOUR_TOKEN";
-
-// Webpush -> https://pushe.co/docs/webpush-api/
 
 $data = array(
     "app_ids" => ["YOUR_APP_ID",],
@@ -32,7 +30,7 @@ $data = array(
             )
         ),
     ),
-    // additional keywords -> https://pushe.co/docs/webpush-api/#api_advance_notification_table1
+    // additional keywords -> https://docs.pushe.co/docs/web-api/notification-actions
 );
 
 // initialize curl

@@ -12,6 +12,8 @@ headers = {
     'Content-Type': 'application/json'
 }
 
+# Web doc -> http://docs.pushe.co/docs/web-api/simple-notification/
+
 data = {
     'app_ids': ['YOUR_APP_ID', ],
     'data': {

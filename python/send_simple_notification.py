@@ -3,7 +3,7 @@
 
 import requests
 
-# Obtain token -> https://pushe.co/docs/api/#api_get_token
+# Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 TOKEN = 'YOUR_TOKEN'
 
 # set header

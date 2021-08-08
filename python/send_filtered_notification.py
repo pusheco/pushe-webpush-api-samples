@@ -3,11 +3,8 @@
 
 import requests
 
-# Obtain token -> https://pushe.co/docs/api/#api_get_token
+# Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 TOKEN = 'YOUR_TOKEN'
-
-# More info about device_id:
-#    (web): https://pushe.co/docs/webpush/#unique_id
 
 # set header
 headers = {

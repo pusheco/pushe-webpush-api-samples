@@ -14,7 +14,8 @@ $data = array(
         "device_id" => ["DEVICE_ID_1","DEVICE_ID_2"]
     ),
     // additional keywords -> https://docs.pushe.co/docs/web-api/notification-keys
-)
+);
+
 $ch = curl_init("https://api.pushe.co/v2/messaging/notifications/web");
 
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(

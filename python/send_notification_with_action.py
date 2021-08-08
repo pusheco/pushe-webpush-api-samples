@@ -3,7 +3,7 @@
 
 import requests
 
-# obtain token -> https://pushe.co/docs/api/#api_get_token
+# obtain token -> https://docs.pushe.co/docs/web-api/authentication
 TOKEN = 'YOUR_TOKEN'
 
 # set header
@@ -12,14 +12,12 @@ headers = {
     'Content-Type': 'application/json'
 }
 
-# Webpush doc -> https://pushe.co/docs/web-api/notification-actions/
-
 data = {
     'app_ids': ['YOUR_APP_ID', ],
     'data': {
         'title': 'Title',
         'content': 'Content',
-        # Actions -> https://pushe.co/docs/webpush-api/#webpush_api_action_type_table2
+        # Actions -> https://docs.pushe.co/docs/web-api/notification-actions
         'action': {
             'action_type': 'U',
             'url': 'https://pushe.co',

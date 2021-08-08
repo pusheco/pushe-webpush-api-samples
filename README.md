@@ -2,6 +2,7 @@
 
 This repository contains a few sample codes for pushe API to kickstart your Webpush project.
 
+  * Documention for pushe API [docs.pushe.co][api]
   * Obtain your token from [conosle.pushe.co][console]
 
 ## Contributing

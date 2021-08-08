@@ -12,7 +12,7 @@ headers = {
     'Content-Type': 'application/json'
 }
 
-# Webpush -> https://pushe.co/docs/webpush-api/
+# Webpush doc -> https://pushe.co/docs/web-api/notification-actions/
 
 data = {
     'app_ids': ['YOUR_APP_ID', ],

@@ -22,7 +22,8 @@ data = {
     },
     'filters': {
         'device_id': ['DEIVCE_ID_1', 'DEVICE_ID_2']
-    },
+    }
+    # additional keywords -> https://docs.pushe.co/docs/web-api/notification-keys
 }
 
 response = requests.post(

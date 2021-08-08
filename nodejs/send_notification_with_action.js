@@ -1,8 +1,9 @@
 var request = require('request');
 
+// Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 var TOKEN = "YOUR_TOKEN";
 
-// Webpush -> https://pushe.co/docs/webpush-api/
+// Webpush doc -> https://docs.pushe.co/docs/web-api/notification-actions
 
 request.post(
     {
@@ -18,7 +19,7 @@ request.post(
             "data": {
                 "title": "Title",
                 "content": "Content",
-                // Actions -> https://pushe.co/docs/webpush-api/#webpush_api_action_type_table2
+                // Actions -> https://docs.pushe.co/docs/web-api/notification-actions
                 "action": {
                     "action_type": "U",
                     "url": "https://pushe.co"
@@ -42,7 +43,7 @@ request.post(
                     }
                 ]
             }
-            // additional keywords -> https://pushe.co/docs/webpush-api/#api_advance_notification_table1
+            // additional keywords -> https://docs.pushe.co/docs/web-api/notification-keys
         }),
     },
     function (error, response, body) {

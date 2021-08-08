@@ -1,8 +1,8 @@
 <?php
-
+// Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 $TOKEN = "YOUR_TOKEN";
 
-// Webpush -> https://pushe.co/docs/webpush-api/
+// Webpush doc -> http://docs.pushe.co/docs/web-api/simple-notification/
 
 $data = array(
     "app_ids" => ["YOUR_APP_ID",],

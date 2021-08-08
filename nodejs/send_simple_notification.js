@@ -1,11 +1,9 @@
 var request = require('request');
 
-// More info about device_id:
-//    (web): https://pushe.co/docs/webpush/#unique_id
-
+// Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 var TOKEN = "YOUR_TOKEN";
 
-// Webpush -> https://pushe.co/docs/webpush-api/
+// Webpush doc -> http://docs.pushe.co/docs/web-api/simple-notification/
 
 request.post(
     {
@@ -22,7 +20,7 @@ request.post(
                 "title": "Title",
                 "content": "Content",
             }
-            // additional keywords -> https://pushe.co/docs/webpush-api/#api_send_advance_notification
+            // additional keywords -> https://docs.pushe.co/docs/web-api/notification-keys
         }),
     },
     function (error, response, body) {

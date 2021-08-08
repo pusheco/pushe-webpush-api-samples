@@ -9,15 +9,15 @@ import (
 
 func main() {
 
-	// Obtain token -> https://pushe.co/docs/api/#api_get_token
+	// Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 	const token = "YOUR_TOKEN"
 
-	// Webpush -> https://pushe.co/docs/webpush-api/
+	// Webpush doc -> https://docs.pushe.co/docs/web-api/filtered-notification
 
 	DeviceIdFilteredData := map[string]interface{}{
 		"app_ids": []string{"YOUR_APP_ID"},
 		// send notification to all applications
-        // "app_ids":  []string{"__all__"}
+                // "app_ids":  []string{"__all__"}
 		"data": map[string]interface{}{
 			"title":   "This is a filtered push",
 			"content": "Only users with specified device_id(s) will see this notification.",
@@ -25,7 +25,7 @@ func main() {
 		"filters": map[string]interface{}{
 			"device_id": []string{"DEVICE_ID_1","DEVICE_ID_2"},
 		},
-		// additional keywords -> https://pushe.co/docs/webpush-api/#api_send_advance_notification
+		// additional keywords -> https://docs.pushe.co/docs/web-api/notification-keys
 	}
 
 	// Marshal returns the JSON encoding of reqData.

@@ -1,11 +1,9 @@
 var request = require('request');
 
-// More info about device_id:
-//    (web): https://pushe.co/docs/webpush/#unique_id
-
+// Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 var TOKEN = "YOUR_TOKEN";
 
-// Webpush -> https://pushe.co/docs/webpush-api/
+// Webpush doc -> https://docs.pushe.co/docs/web-api/filtered-notification
 
 request.post(
     {
@@ -25,7 +23,7 @@ request.post(
             "filters": {
                 "device_id": ["DEVICE_ID_1", "DEVICE_ID_2"]
             }
-            // additional keywords -> https://pushe.co/docs/webpush-api/#api_advance_notification_table1
+            // additional keywords -> https://docs.pushe.co/docs/web-api/notification-keys
         }),
     },
     function (error, response, body) {

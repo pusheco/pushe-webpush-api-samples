@@ -3,7 +3,7 @@ var request = require('request');
 // Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 var TOKEN = "YOUR_TOKEN";
 
-// Webpush doc -> https://docs.pushe.co/docs/web-api/notification-actions
+// Webpush doc -> http://docs.pushe.co/docs/web-api/simple-notification/
 
 request.post(
     {
@@ -19,29 +19,6 @@ request.post(
             "data": {
                 "title": "Title",
                 "content": "Content",
-                // Actions -> https://docs.pushe.co/docs/web-api/notification-actions
-                "action": {
-                    "action_type": "U",
-                    "url": "https://pushe.co"
-                },
-                "buttons": [
-                    {
-                        'btn_content': 'YOUR_CONTENT',
-                        'btn_action': {
-                            "action_type": "U",
-                            "url": "https://pushe.co"
-                        },
-                        'btn_order': 0,
-                    },
-                    {
-                        'btn_content': 'YOUR_CONTENT',
-                        'btn_action': {
-                            "action_type": "U",
-                            "url": "https://pushe.co"
-                        },
-                        'btn_order': 1,
-                    }
-                ]
             }
             // additional keywords -> https://docs.pushe.co/docs/web-api/notification-keys
         }),
@@ -56,6 +33,7 @@ request.post(
             var data = JSON.parse(body);
             var report_url;
 
+            // report url only generated on Non-Free plan
             if (data.hashed_id) {
                 report_url = "https://pushe.co/report?id=" + data.hashed_id;
             } else {

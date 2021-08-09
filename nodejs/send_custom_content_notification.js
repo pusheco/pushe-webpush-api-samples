@@ -1,11 +1,9 @@
 var request = require('request');
 
-// More info about device_id:
-//    (web): https://pushe.co/docs/webpush/#unique_id
-
+// Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 var TOKEN = "YOUR_TOKEN";
 
-// Webpush -> https://pushe.co/docs/webpush-api/
+// Webpush doc -> http://docs.pushe.co/docs/web-api/custom-content-notification/
 
 request.post(
     {
@@ -19,13 +17,13 @@ request.post(
         body: JSON.stringify({
             "app_ids": ["YOUR_APP_ID"],
             "data": {
-                "title": "This is a filtered push",
-                "content": "Only users with specified device_id(s) will see this notification.",
+                "title": "Title",
+                "content": "Content",
             },
-            "filters": {
-                "device_id": ["DEVICE_ID_1", "DEVICE_ID_2"]
-            }
-            // additional keywords -> https://pushe.co/docs/webpush-api/#api_advance_notification_table1
+            "custom_content": {
+                "key1": "value1",
+                "key2": "value2"
+            },
         }),
     },
     function (error, response, body) {
@@ -38,6 +36,7 @@ request.post(
             var data = JSON.parse(body);
             var report_url;
 
+            // report url only generated on Non-Free plan
             if (data.hashed_id) {
                 report_url = "https://pushe.co/report?id=" + data.hashed_id;
             } else {

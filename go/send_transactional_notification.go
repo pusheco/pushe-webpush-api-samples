@@ -1,8 +1,5 @@
 package main
 
-// More info about device_id:
-//    (web): https://pushe.co/docs/webpush/#unique_id
-
 import (
 	"bytes"
 	"encoding/json"
@@ -12,18 +9,25 @@ import (
 
 func main() {
 
-	// Obtain token -> https://pushe.co/docs/api/#api_get_token
+	// Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 	const token = "YOUR_TOKEN"
 
-    // Webpush -> https://pushe.co/docs/webpush-api/
+  // Webpush doc -> http://docs.pushe.co/docs/web-api/transactional-notification/
 
 	reqData := map[string]interface{}{
 		"app_ids":  []string{"YOUR_APP_ID"},
-		"data": map[string]interface{}{
-			"title":   "Title",
-			"content": "Content",
-		},
-		// additional keywords -> https://pushe.co/docs/webpush-api/#api_send_advance_notification
+		"data": map[string]string{
+        "title": "Title",
+		    "content": "Content",
+    },
+    "custom_content": map[string]string{
+        "key1": "value1",
+        "key2": "value2",
+    },
+    "device_id": []string{
+        "device_id_1", 
+        "device_id_2", 
+    }
 	}
 
 	// Marshal returns the JSON encoding of reqData.
@@ -38,7 +42,7 @@ func main() {
 	// create request obj
 	request, err := http.NewRequest(
 		http.MethodPost,
-		"https://api.pushe.co/v2/messaging/notifications/web/",
+		"https://api.pushe.co/v2/messaging/web-rapid/",
 		bytes.NewBuffer(reqJSON),
 	)
 

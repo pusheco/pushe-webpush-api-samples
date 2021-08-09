@@ -3,7 +3,7 @@
 
 import requests
 
-# obtain token -> https://docs.pushe.co/docs/web-api/authentication
+# Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 TOKEN = 'YOUR_TOKEN'
 
 # set header
@@ -12,47 +12,26 @@ headers = {
     'Content-Type': 'application/json'
 }
 
+# Webpush doc -> https://docs.pushe.co/docs/web-api/filtered-notification
+
 data = {
     'app_ids': ['YOUR_APP_ID', ],
     'data': {
-        'title': 'Title',
-        'content': 'Content',
-        # Actions -> https://docs.pushe.co/docs/web-api/notification-actions
-        'action': {
-            'action_type': 'U',
-            'url': 'https://pushe.co',
-        },
-
-        'buttons': [
-            {
-                'btn_content': 'YOUR_CONTENT',
-                'btn_action': {
-                    'action_type': 'U',
-                    'url': 'https://pushe.co'
-                },
-                'btn_order': 0,
-            },
-            {
-                'btn_content': 'YOUR_CONTENT',
-                'btn_action': {
-                    'action_type': 'U',
-                    'url': 'https://pushe.co'
-                },
-                'btn_order': 1,
-            }
-        ],
+        'title': 'This is a filtered push',
+        'content': 'Only users with specified device_id(s) will see this notification.',
     },
-
+    'filters': {
+        'device_id': ['DEIVCE_ID_1', 'DEVICE_ID_2']
+    }
+    # additional keywords -> https://docs.pushe.co/docs/web-api/notification-keys
 }
 
-# send request
 response = requests.post(
     'https://api.pushe.co/v2/messaging/notifications/web/',
     json=data,
     headers=headers,
 )
 
-# get status_code and response
 print('status code => ', response.status_code)
 print('response => ', response.json())
 print('==========')

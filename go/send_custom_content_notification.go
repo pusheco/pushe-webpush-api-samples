@@ -12,39 +12,18 @@ func main() {
 	// Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 	const token = "YOUR_TOKEN"
 
-	// Webpush doc -> https://docs.pushe.co/docs/web-api/notification-actions
+  // Webpush doc -> http://docs.pushe.co/docs/web-api/custom-content-notification/
+
 	reqData := map[string]interface{}{
 		"app_ids":  []string{"YOUR_APP_ID"},
-		"data": map[string]interface{}{
+		"data": map[string]string{
 			"title":   "Title",
 			"content": "Content",
-
-			// Actions -> https://docs.pushe.co/docs/web-api/notification-actions
-			"action": map[string]interface{}{
-				"action_type": "U",
-				"url":         "https://pushe.co",
-			},
-
-			"buttons": []map[string]interface{}{
-				{
-					"btn_content": "YOUR_CONTENT",
-					"btn_action": map[string]interface{}{
-						"action_type":         "U",
-						"url":                 "https://pushe.co",
-					},
-					"btn_order": 0,
-				},
-                {
-					"btn_content": "YOUR_CONTENT",
-					"btn_action": map[string]interface{}{
-						"action_type":         "U",
-						"url":                 "https://pushe.co",
-					},
-					"btn_order": 1,
-				},
-			},
 		},
-		// additional keywords -> https://docs.pushe.co/docs/web-api/notification-keys
+    "custom_content": map[string]string{
+            "key1": "value1",
+            "key2": "value2",
+    },
 	}
 
 	// Marshal returns the JSON encoding of reqData.

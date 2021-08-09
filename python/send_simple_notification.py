@@ -3,11 +3,8 @@
 
 import requests
 
-# Obtain token -> https://pushe.co/docs/api/#api_get_token
+# Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 TOKEN = 'YOUR_TOKEN'
-
-# More info about device_id:
-#    (web): https://pushe.co/docs/webpush/#unique_id
 
 # set header
 headers = {
@@ -15,25 +12,24 @@ headers = {
     'Content-Type': 'application/json'
 }
 
-# Webpush -> https://pushe.co/docs/webpush-api/
+# Webpush doc -> http://docs.pushe.co/docs/web-api/simple-notification/
 
 data = {
     'app_ids': ['YOUR_APP_ID', ],
     'data': {
-        'title': 'This is a filtered push',
-        'content': 'Only users with specified device_id(s) will see this notification.',
-    },
-    'filters': {
-        'device_id': ['DEIVCE_ID_1', 'DEVICE_ID_2']
-    },
+        'title': 'Title',
+        'content': 'Content',
+    }
 }
 
+# send request
 response = requests.post(
     'https://api.pushe.co/v2/messaging/notifications/web/',
     json=data,
     headers=headers,
 )
 
+# get status_code and response
 print('status code => ', response.status_code)
 print('response => ', response.json())
 print('==========')
@@ -43,7 +39,7 @@ if response.status_code == 201:
 
     data = response.json()
 
-    # hashed_id only generated for Non-Free plan
+    # hashed_id just generated for Non-Free plan
     if data['hashed_id']:
         report_url = 'https://pushe.co/report?id=%s' % data['hashed_id']
     else:

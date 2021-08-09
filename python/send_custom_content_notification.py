@@ -3,7 +3,7 @@
 
 import requests
 
-# Obtain token -> https://pushe.co/docs/api/#api_get_token
+# Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 TOKEN = 'YOUR_TOKEN'
 
 # set header
@@ -12,11 +12,17 @@ headers = {
     'Content-Type': 'application/json'
 }
 
+# Webpush doc -> http://docs.pushe.co/docs/web-api/custom-content-notification/
+
 data = {
     'app_ids': ['YOUR_APP_ID', ],
     'data': {
         'title': 'Title',
         'content': 'Content',
+    },
+    'custom_content': {
+        'key1': 'value1',
+        'key2': 'value2'
     }
 }
 

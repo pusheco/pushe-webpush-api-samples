@@ -3,11 +3,11 @@ var request = require('request');
 // Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 var TOKEN = "YOUR_TOKEN";
 
-// Webpush doc -> https://docs.pushe.co/docs/web-api/notification-actions
+// Webpush doc -> http://docs.pushe.co/docs/web-api/transactional-notification/
 
 request.post(
     {
-        uri: "https://api.pushe.co/v2/messaging/notifications/web/",
+        uri: "https://api.pushe.co/v2/messaging/web-rapid/",
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -19,31 +19,15 @@ request.post(
             "data": {
                 "title": "Title",
                 "content": "Content",
-                // Actions -> https://docs.pushe.co/docs/web-api/notification-actions
-                "action": {
-                    "action_type": "U",
-                    "url": "https://pushe.co"
-                },
-                "buttons": [
-                    {
-                        'btn_content': 'YOUR_CONTENT',
-                        'btn_action': {
-                            "action_type": "U",
-                            "url": "https://pushe.co"
-                        },
-                        'btn_order': 0,
-                    },
-                    {
-                        'btn_content': 'YOUR_CONTENT',
-                        'btn_action': {
-                            "action_type": "U",
-                            "url": "https://pushe.co"
-                        },
-                        'btn_order': 1,
-                    }
-                ]
-            }
-            // additional keywords -> https://docs.pushe.co/docs/web-api/notification-keys
+            },
+            "custom_content": {
+                "key1": "value1",
+                "key2": "value2"
+            },
+            "device_id": [
+                'device_id_1', 
+                'device_id_2', 
+            ]
         }),
     },
     function (error, response, body) {
@@ -56,6 +40,7 @@ request.post(
             var data = JSON.parse(body);
             var report_url;
 
+            // report url only generated on Non-Free plan
             if (data.hashed_id) {
                 report_url = "https://pushe.co/report?id=" + data.hashed_id;
             } else {

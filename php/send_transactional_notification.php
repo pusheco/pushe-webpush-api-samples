@@ -1,8 +1,8 @@
 <?php
-
+// Obtain token -> https://docs.pushe.co/docs/web-api/authentication
 $TOKEN = "YOUR_TOKEN";
 
-// Webpush -> https://pushe.co/docs/webpush-api/
+// Webpush doc -> http://docs.pushe.co/docs/web-api/transactional-notification/
 
 $data = array(
     "app_ids" => ["YOUR_APP_ID",],
@@ -11,10 +11,18 @@ $data = array(
         "title" => "Title",
         "content" => "Content",
     ),
+    'custom_content' => array(
+        'key1' => 'value1',
+        'key2' => 'value2'
+    ),
+    'device_id' => array(
+        'device_id_1', 
+        'device_id_2'
+    )
 );
 
 // initialize curl
-$ch = curl_init("https://api.pushe.co/v2/messaging/notifications/web/");
+$ch = curl_init("https://api.pushe.co/v2/messaging/web-rapid/");
 
 // set header parameters
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
